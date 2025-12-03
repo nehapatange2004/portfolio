@@ -1,7 +1,5 @@
 "use client";
-
 import Image from "next/image";
-import { IconType } from "react-icons";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { ProjectItem } from "../types/InfoType";
 
@@ -18,7 +16,7 @@ export default function ProjectCard({
     status,
 }: ProjectItem) {
     return (
-        <div className="border rounded-xl p-5 shadow-sm hover:shadow-lg transition-all w-full md:w-[48%] lg:w-[31%] bg-background/60 backdrop-blur-sm">
+        <div className="border rounded-xl p-2 hover:scale-101 shadow-md transition-all w-full md:w-[48%] lg:w-[31%] bg-background/60 backdrop-blur-sm">
 
             {/* Thumbnail */}
             <div className="w-full h-40 overflow-hidden rounded-lg mb-4">
@@ -32,7 +30,7 @@ export default function ProjectCard({
             </div>
 
             {/* Title + Status */}
-            <div className="flex justify-between items-center mb-2">
+            <div className="flex justify-between items-center mb-2 px-5">
                 <div className="flex items-center gap-2">
                     <Icon className="text-lg" />
                     <h3 className="text-xl font-semibold">{name}</h3>
@@ -43,10 +41,10 @@ export default function ProjectCard({
             </div>
 
             {/* Description */}
-            <p className="text-sm opacity-90 mb-4 leading-relaxed">{description}</p>
+            <p className="text-sm opacity-90 mb-4 leading-relaxed px-5">{description}</p>
 
             {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-4 px-5">
                 {tech.map((t) => (
                     <span
                         key={t.name}
@@ -59,7 +57,7 @@ export default function ProjectCard({
             </div>
 
             {/* Links */}
-            <div className="flex justify-end gap-4 text-sm">
+            <div className="flex justify-end gap-4 text-sm px-5">
                 {github && (
                     <a
                         href={github}

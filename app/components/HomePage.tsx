@@ -1,15 +1,12 @@
 "use client";
-
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useInfo } from "../providers/InfoProvider";
 
 export default function HomePage() {
-    const titles = [
-        "Full-Stack Developer",
-        "AI Enthusiast",
-        "Problem Solver",
-        "Builder of Bugs & Fixer of Them"
-    ];
+    const { titles } = useInfo();
+
+    const { profileImg } = useInfo()
 
     const [currentTitle, setCurrentTitle] = useState("");
     const [titleIndex, setTitleIndex] = useState(0);
@@ -43,7 +40,7 @@ export default function HomePage() {
     }, [charIndex, isDeleting, titleIndex]);
 
     return (
-        <section className="w-full flex flex-col md:flex-row items-center justify-between bg- py-16 px-6 md:px-20 gap-10">
+        <section className="w-full flex flex-col md:flex-row items-center justify-between bg- py-16 px-6 md:px-20 gap-10 z-5">
 
             {/* Left side */}
             <div className="flex flex-col max-w-xl gap-4">
@@ -75,16 +72,15 @@ export default function HomePage() {
             </div>
 
 
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow">
-                <img
-                    src="https://img.freepik.com/free-vector/cute-girl-hacker-operating-laptop-cartoon-vector-icon-illustration-people-technology-isolated-flat_138676-9487.jpg?semt=ais_hybrid&w=740&q=80" // replace with your own photo
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow border-2">
+                <Image
+                    src={profileImg}
                     alt="Profile"
                     width={300}
                     height={300}
-                    className="object-cover bg-amber-100 z-80"
+                    className="object-cover z-80 opacity-80"
                 />
             </div>
-
         </section>
     );
 }

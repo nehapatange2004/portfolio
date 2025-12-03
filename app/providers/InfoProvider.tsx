@@ -1,12 +1,14 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, ReactNode } from "react";
 import { CgTerminal } from "react-icons/cg";
 import { FaComments, FaDatabase, FaMagic, FaMobileAlt } from "react-icons/fa";
 import { SiExpress, SiGit, SiGithub, SiJavascript, SiMongodb, SiNextdotjs, SiNodedotjs, SiPostman, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
 import { ProjectsTypes, SkillsType, ToolsType } from "../types/InfoType";
-import { FaCloudBolt } from "react-icons/fa6";
-type Info = "dark" | "light";
+import { FaCloudBolt, FaUnsplash } from "react-icons/fa6";
+import { RiGeminiFill, RiLockPasswordLine } from "react-icons/ri";
+import { IoLogoWechat } from "react-icons/io5";
+
 
 
 
@@ -16,6 +18,13 @@ export const useInfo = () => useContext(InfoContext);
 
 export default function InfoProvider({ children }: { children: ReactNode }) {
     //   const [Info, setInfo] = useState<Info>("dark");
+    const profileImg: string = "https://res.cloudinary.com/dm4avdso7/image/upload/v1764753304/character1_lxzptp.png"
+    const titles: string[] = [
+        "Full-Stack Developer",
+        "AI Enthusiast",
+        "Problem Solver",
+        "Builder of Bugs & Fixer of Them"
+    ];
     const skills: SkillsType = [
         { name: "React", icon: SiReact },
         { name: "Next.js", icon: SiNextdotjs },
@@ -43,27 +52,28 @@ export default function InfoProvider({ children }: { children: ReactNode }) {
                 "A real-time chat platform with message delivery states, presence detection, and scalable backend logic.",
             tech: [
                 { name: "React", icon: SiReact },
-                { name: "Node.js", icon: SiNodedotjs },
                 { name: "Express.js", icon: SiExpress },
                 { name: "MongoDB", icon: SiMongodb },
                 { name: "Tailwind CSS", icon: SiTailwindcss },
-                { name: "JavaScript", icon: SiJavascript },
+                { name: "Socket.io", icon: IoLogoWechat },
+                { name: "JWT & bcrypt", icon: RiLockPasswordLine },
+
             ],
-            github: "https://github.com/nehapatange2004/yapschat",
+            github: "https://github.com/nehapatange2004/Yaps-Chats",
             live: "https://yaps-chats.netlify.app",
             status: "Completed",
         },
-
         {
             name: "Builderly",
             icon: FaMobileAlt,
-            img: "/projects/builderly.png",
+            img: "https://res.cloudinary.com/dm4avdso7/image/upload/v1764744317/Screenshot_2025-12-03_121429_amg2an.png",
             description:
                 "A no-code app builder that lets users visually design UI components and auto-exports production-ready code.",
             tech: [
                 { name: "Next.js", icon: SiNextdotjs },
                 { name: "TypeScript", icon: SiTypescript },
                 { name: "Tailwind CSS", icon: SiTailwindcss },
+                { name: "GenAi", icon: RiGeminiFill },
             ],
             github: "https://github.com/nehapatange2004/builderly",
             live: "",
@@ -74,21 +84,24 @@ export default function InfoProvider({ children }: { children: ReactNode }) {
             icon: FaMagic,
             img: "https://res.cloudinary.com/dm4avdso7/image/upload/v1764703320/vibescape_tdwk5p.png", // replace with real local file
             description:
-                "An AI-driven music and emotion explorer that generates playlists, mood insights, and interactive visuals.",
+                "An Unsplash powered high quality image serving app",
             tech: [
-                { name: "Next.js", icon: SiNextdotjs },
+
                 { name: "ReactJs", icon: SiReact },
                 { name: "Javascript", icon: SiTypescript },
                 { name: "Tailwind CSS", icon: SiTailwindcss },
+                { name: "Unsplash API", icon: FaUnsplash },
+
+
             ],
-            github: "https://github.com/nehapatange2004/vibescape",
+            github: "https://github.com/nehapatange2004/VibeScape",
             live: "https://vibescape.netlify.app",
             status: "MVP",
         },
     ];
 
     return (
-        <InfoContext.Provider value={{ skills, tools, projects }}>
+        <InfoContext.Provider value={{ skills, tools, projects, profileImg, titles, }}>
             {children}
         </InfoContext.Provider>
     );

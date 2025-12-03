@@ -1,33 +1,13 @@
 'use client'
 import Image from "next/image";
 import { FC } from "react";
-import { Item, SkillsType } from "../types/InfoType";
-import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiJavascript,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
-  SiTailwindcss,
-  SiPostman,
-  SiGit,
-  SiGithub,
-
-} from "react-icons/si";
-
-import { CgTerminal } from "react-icons/cg";
-import { FaCloudBolt, FaDatabase } from "react-icons/fa6";
-import { useTheme } from "../providers/ThemeProvider";
+import { Item } from "../types/InfoType";
 import { useInfo } from "../providers/InfoProvider";
 
-
-
 const AboutSection: FC = () => {
-  const { skills, tools } = useInfo();
+  const { skills, tools, profileImg } = useInfo();
   return (
-    <section className="w-full py-16 px-6 md:px-12 lg:px-24">
+    <section className="w-full py-16 px-6 md:px-12 lg:px-24 z-5">
 
       <h2 className="text-3xl md:text-4xl font-bold mb-6">
         Know Who I Am
@@ -40,7 +20,7 @@ const AboutSection: FC = () => {
           <p className="text-lg leading-relaxed">
             I'm <span className="font-semibold">Neha Patange</span> — a third-year
             Computer Engineering student at <span className="font-semibold">
-              Sinhgad Academy of Engineering (SPPU)
+              SAOE - Savitribai Phule Pune University
             </span>.
           </p>
 
@@ -59,11 +39,11 @@ const AboutSection: FC = () => {
         {/* Right Photo */}
         <div className="w-48 h-48 md:w-64 md:h-64 rounded-xl overflow-hidden shadow-md">
           <Image
-            src="/your-photo.jpg"
+            src="https://res.cloudinary.com/dm4avdso7/image/upload/v1764753655/images_us41st.jpg"
             alt="Neha Patange"
             width={300}
             height={300}
-            className="object-cover border"
+            className="object-cover border opacity-70"
           />
         </div>
       </div>
